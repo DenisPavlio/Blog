@@ -5,11 +5,23 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
   </head>
 
   <body>
+  <ul class="menu">
+    <li class="menu"><a href="<%= root_path %>"><strong style="color: #FFFFFF">#DemoArt</strong></a></li>
+    <li class="menu"><a href="<%= root_path %>"><strong>Upload picture</strong></a></li>
+    <li  class="menu" style="float:right"><a class="active" href="<%= root_path %>">How it works</a></li>
+  </ul>
+  <div id="container" class='paper center-block'>
+
+    <% flash.each do |name, msg| %>
+      <%= content_tag :div, msg, id: "flash_#{name}" %>
+    <% end %>
     <%= yield %>
+
+  </div>
   </body>
 </html>
