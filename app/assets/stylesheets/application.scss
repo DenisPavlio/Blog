@@ -30,6 +30,10 @@ body {
     min-height: 100vh;
 }
 
+img.file {
+  width: 100%;
+}
+
 a img {
     border: none;
 }
@@ -136,7 +140,7 @@ li.menu a:hover:not(.active) {
 }
 
 .active {
-    background-color: #4CAF50;
+    background-color: #428bca;
 }
 
 .button {

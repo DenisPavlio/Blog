@@ -1,0 +1,40 @@
+<% if post.user %>
+  <div class="info">
+    <h4 class="name">Autor: <%= post.user.name %></h4>
+    <p>Post name: <%= post.name %></p>
+    <p>Category: <%= post.category.name %></p>
+  </div>
+  <div class="content">
+    <% if post.file.url.present? %>
+      <div class="file">
+        <%= image_tag post.file.url, class: 'file' %>
+      </div>
+      <hr>
+      <span class="text"><%= post.content %></span>
+      <hr>
+    <% end %>
+    <div class="text-left">
+      <span class="like-count"><%= pluralize(post.cached_votes_up, 'like') %></span>
+      <div class="pull-right">
+        <% if belongs_to_user?(post) %>
+          <%= link_to edit_post_path(post), class: 'btn btn-primary btn-sm' do %>
+            <% fa_icon 'pencil' %>
+          <% end %>
+          <%= link_to post_path(post), method: :delete, class:'btn btn-danger btn-sm', remote: remote do %>
+            <% fa_icon 'trash' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% if user_signed_in? %>
+    <div class="actions">
+      <div class="row">
+        <br>
+        <div class="col-xs-12 like">
+          <%= render 'likes/form', likeable: post %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>

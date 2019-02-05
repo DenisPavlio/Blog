@@ -1,29 +1,21 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>File:</strong>
-  <%= image_tag @post.file.url, size: 300 %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @post.name %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @post.content %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @post.user %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @post.category %>
-</p>
-
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<% if @post.user %>
+  <div id="post-<%= @post.id %>" class="post">
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3 well">
+        <%= render @post, remote: false %>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-6 col-lg-offset-3 well">
+        <h4>Comments</h4>
+        <hr>
+        <%= render 'comments/form', commentable: @post %>
+        <br>
+        <div class="comments">
+          <%= render(@comments) || render('shared/no_resource', resources: 'Comments') %>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,17 @@
+<% if comment.user %>
+  <div id="comment-<%= comment.id %>">
+      <h4 class="text-left"><%= comment.user.name %>:</h4>
+    <div class="content">
+        <h6 class="text-left"><%= comment.comment %></h6>
+      <div class="pull-right">
+        <% if belongs_to_user?(comment) %>
+          <%= link_to comment_path(comment), method: :delete, class: 'btn btn-danger btn-sm' do %>
+            <% fa_icon 'trash' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    <br>
+    <hr>
+  </div>
+<% end %>
