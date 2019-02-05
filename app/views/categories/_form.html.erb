@@ -12,9 +12,9 @@
   <% end %>
   <div class="form-group">
     <%= form.label :name, 'Category name' %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, class: 'form-control' %>
   </div>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Send', class: 'btn btn-primary' %>
   </div>
 <% end %>

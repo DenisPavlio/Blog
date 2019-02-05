@@ -12,4 +12,8 @@ class Comment < ActiveRecord::Base
 
   # NOTE: Comments belong to a user
   belongs_to :user
+
+  def date
+    created_at.in_time_zone(2).strftime('%m/%d/%Y %H:%M')
+  end
 end
