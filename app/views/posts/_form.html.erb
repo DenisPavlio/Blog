@@ -1,43 +1,44 @@
-<%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<div class="center-block center-form">
+  <div class="login-form">
+    <%= form_with(model: post, local: true) do |form| %>
+      <% if post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
 
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
+          <ul>
+          <% post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-    <div class="form-group">
-      <div class="field">
-        <%= form.label :file %>
-        <%= form.file_field :file, class: 'form-control' %>
-      </div>
+        <div class="form-group">
+          <div class="field">
+            <%= form.label :file %>
+            <%= form.file_field :file, class: 'form-control' %>
+          </div>
 
-      <div class="field">
-        <%= form.label :name %>
-        <%= form.text_field :name, class: 'form-control' %>
-      </div>
+          <div class="form-group">
+            <%= form.label :name %>
+            <%= form.text_field :name, class: 'form-control' %>
+          </div>
 
-      <div class="field">
-        <%= form.label :content %>
-        <%= form.text_area :content, class: 'form-control' %>
-      </div>
+          <div class="form-group">
+            <%= form.label :content %>
+            <%= form.text_area :content, class: 'form-control' %>
+          </div>
 
-      <div class="field">
-        <%= form.label :user_id %>
-        <%= form.text_field :user_id, class: 'form-control' %>
-      </div>
+          <div class="form-group">
+            <%= form.hidden_field :user_id, value: current_user.id %>
+          </div>
 
-      <div class="field">
-        <%= form.label :category_id %>
-        <%= form.text_field :category_id, class: 'form-control' %>
-      </div>
+          <%= form.label :category_id %>
+          <%= form.collection_select :category_id, Category.all, :id, :name, {}, class: 'form-control' %>
 
-      <div class="actions">
-        <%= form.submit :Send, class: 'btn btn-primary' %>
-      </div>
-    </div>
-<% end %>
+          <div class="form-group"><br>
+            <%= form.submit :Send, class: 'btn btn-primary' %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+</div>

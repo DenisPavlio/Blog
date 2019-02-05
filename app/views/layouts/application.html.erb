@@ -24,10 +24,8 @@
     <% end %>
   </ul>
   <div id="container" class='paper center-block'>
-
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, id: "flash_#{name}" %>
-    <% end %>
+      <p id="notice"><%= notice %></p>
+      <p id="alert"><%= alert %></p>
     <%= yield %>
 
   </div>

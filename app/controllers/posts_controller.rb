@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: :index
   # GET /posts
   def index
     @posts = Post.all
@@ -14,6 +14,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    @categories = Category.all
   end
 
   # GET /posts/1/edit
@@ -22,6 +23,7 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
+    binding.pry
     @post = Post.new(post_params)
 
     if @post.save
@@ -51,7 +53,6 @@ class PostsController < ApplicationController
     def set_post
       @post = Post.find(params[:id])
     end
-
     # Only allow a trusted parameter "white list" through.
     def post_params
       params.require(:post).permit(:file, :name, :content, :user_id, :category_id)
