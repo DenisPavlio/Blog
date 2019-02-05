@@ -11,9 +11,17 @@
 
   <body>
   <ul class="menu">
-    <li class="menu"><a href="<%= root_path %>"><strong style="color: #FFFFFF">#DemoArt</strong></a></li>
-    <li class="menu"><a href="<%= root_path %>"><strong>Upload picture</strong></a></li>
-    <li  class="menu" style="float:right"><a class="active" href="<%= root_path %>">How it works</a></li>
+    <li class="menu"><a href="<%= root_path %>"><strong style="color: #FFFFFF">#Blog</strong></a></li>
+    <li class="menu"><a href="<%= new_post_path %>"><strong>New post</strong></a></li>
+    <li class="menu"><a href="<%= posts_path %>"><strong>All posts</strong></a></li>
+    <li class="menu"><a href="<%= categories_path %>"><strong>Categories</strong></a></li>
+    <% if user_signed_in? %>
+      <li  class="menu" style="float:right"><a data-method="delete" class="active" href="<%= destroy_user_session_path %>">Logout</a></li>
+      <li  class="menu" style="float:right"><a class="active" href="<%= edit_user_registration_path %>"><%= current_user.email %> settings</a></li>
+    <% else %>
+      <li  class="menu" style="float:right"><a class="active" href="<%= new_user_session_path %>">Login</a></li>
+      <li  class="menu" style="float:right"><a class="active" href="<%= new_user_registration_path %>">Sign up</a></li>
+    <% end %>
   </ul>
   <div id="container" class='paper center-block'>
 
