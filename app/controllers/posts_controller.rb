@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   # GET /posts
   def index
-    @posts = Post.all
+    @posts = Post.paginate(page: params[:page], per_page: 10)
   end
 
   # GET /posts/1

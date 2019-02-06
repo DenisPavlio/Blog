@@ -2,6 +2,7 @@
 <%= render 'shared/categories_list', categories: @categories, resource: @category %>
 <% if @posts.present? %>
   <% @posts.each do |post| %>
+    <div class="post"><%= will_paginate @posts %></div>
   <div id="post-<%= post.id %>" class="post">
     <div class="row">
       <div class="col-lg-10 col-lg-offset-1 well">
@@ -10,6 +11,7 @@
     </div>
   </div>
     <% end %>
+  <div class="post"><%= will_paginate @posts %></div>
 <% else %>
   <%= render('shared/no_resource', resources: 'Posts') %>
 <% end %>

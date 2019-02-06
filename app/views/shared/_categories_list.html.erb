@@ -1,11 +1,18 @@
-<div class="category">
+<div class="category text-left">
   <div class="list-group">
     <% categories.each do |category| %>
       <% if resource.present? && category.id == resource.id %>
-        <%= link_to category.name, category_path(category), class: 'list-group-item disabled' %>
+        <%= link_to category_name_and_count(category), category_path(category), class: 'list-group-item disabled' %>
       <% else %>
-        <%= link_to category.name, category_path(category), class: 'list-group-item' %>
+        <%= link_to category_name_and_count(category), category_path(category), class: 'list-group-item' %>
       <% end %>
     <% end %>
   </div>
 </div>
+
+<!--<ul class="list-group">-->
+<!--  <li class="list-group-item">-->
+
+<!--    Cras justo odio-->
+<!--  </li>-->
+<!--</ul>-->

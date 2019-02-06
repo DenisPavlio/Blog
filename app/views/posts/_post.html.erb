@@ -6,19 +6,23 @@
     <p class="text-right"><%= post.date %></p>
   </div>
   <div class="content">
-    <% if post.file.url.present? %>
+
       <div class="file">
-        <%= image_tag post.file.url, class: 'file' %>
+        <hr>
+        <% if post.file.url.present? %>
+          <%= image_tag post.file.url, class: 'file' %>
+        <% else %>
+          <%= image_tag 'http://www.aristrocratfood.com/images/company/010119-044102_no-image.png', class: 'file' %>
+        <% end %>
       </div>
       <hr>
       <% if button == true %>
         <p class="text-left"><%= truncate(post.content, length: 500, separator: ' ') %></p>
         <%= link_to 'Read more...', post_path(post) if post.content.length > 500 %>
-        <% else %>
+      <% else %>
           <p class="text-left"><%= post.content %></p>
-        <% end %>
+      <% end %>
       <hr>
-    <% end %>
     <div class="text-left">
       <span class="like-count"><%= pluralize(post.cached_votes_up, 'like') %></span>
       <div class="pull-right">
@@ -44,7 +48,13 @@
       </div>
     </div>
    <% else %>
+    <div class="actions">
+      <div class="row">
+        <div class="col-xs-12 like">
     <p class="text-primary">Please Login to post a comments and likes</p>
     <%= render 'comments/button', post: post if button == true %>
+        </div>
+      </div>
+    </div>
   <% end %>
 <% end %>

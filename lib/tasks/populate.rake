@@ -21,23 +21,11 @@ namespace :fill do
       puts "created user #{user.email}"
     end
 
-    # user = User.new(name: 'Mykyta Didenko', email: 'ndidenko@matcha.com', sex: 'male', password: 'password')
-    # user.skip_confirmation!
-    # user.save!
-    # puts 'Created test user with email=ndidenko@matcha.com and password=password'
-    #
-    # for i in 1..5
-    #   user = User.new(name: "test#{i}", email: "test#{i}@matcha.com", sex: 'male', password: 'password')
-    #   user.skip_confirmation!
-    #   user.save!
-    #   puts "Created test user with email=test#{i}@matcha.com and password=password"
-    # end
-
     puts 'Creating Categories'
     puts '==================='
     30.times do
       category = Category.new
-      category.name = Faker::NewGirl.character + ' . ' + Faker::Number.number(1)
+      category.name = Faker::Name.prefix + ' ' + Faker::Superhero.name
       category.save
       puts "created category #{category.name}"
     end
@@ -49,6 +37,7 @@ namespace :fill do
 
     150.times do
       post = Post.new
+      post.name = Faker::RockBand.name
       post.content = Populator.sentences(2..10)
       post.user = users.sample
       post.category = categories.sample
@@ -61,7 +50,7 @@ namespace :fill do
 
     posts = Post.all
 
-    300.times do
+    500.times do
       post = posts.sample
       user = users.sample
       comment = post.comments.new
@@ -74,11 +63,15 @@ namespace :fill do
     puts 'Creating Likes For Posts'
     puts '========================'
 
-    300.times do
+    500.times do
       post = posts.sample
       user = users.sample
       post.liked_by user
       puts "post #{post.id} liked by user #{user.name}"
     end
+
+    puts '========================================'
+    puts 'With love from Unit Factory (C) ndidenko'
+    puts '========================================'
   end
 end

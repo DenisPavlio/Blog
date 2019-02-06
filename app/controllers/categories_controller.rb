@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1
   def show
-    @posts = Post.where(category_id: @category.id)
+    @posts = Post.where(category_id: @category.id).paginate(page: params[:page], per_page: 10)
     @categories = Category.all
   end
 
