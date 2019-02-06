@@ -7,8 +7,13 @@ class Category < ApplicationRecord
   private
 
   def name_rules
-    errors.add(:base, 'Category name must be at least 2 words') if name.split.size < 2
-    errors.add(:base, 'Category name must be starts with a capital letter') unless name[0..0] =~ /[A-Z]/
-    errors.add(:base, 'Category name must contain the dot character "."') unless name.include? '.'
+    splited = name.split
+    if splited.size < 2
+      errors.add(:base, 'Name must be at least 2 words')
+    else
+      errors.add(:base, 'Name words must be at least 2 letters') if splited[0].size < 2 || splited[1].size < 2
+    end
+    errors.add(:base, 'Name must be starts with a capital letter') unless name[0..0] =~ /[A-Z]/
+    errors.add(:base, 'Name must contain the dot character "."') unless name.include? '.'
   end
 end
