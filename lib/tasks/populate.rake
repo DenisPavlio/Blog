@@ -23,7 +23,7 @@ namespace :fill do
 
     puts 'Creating Categories'
     puts '==================='
-    30.times do
+    20.times do
       category = Category.new
       category.name = Faker::Name.prefix + ' ' + Faker::Superhero.name
       category.save
