@@ -2,10 +2,10 @@
   <div id="comment-<%= comment.id %>">
       <h4 class="text-left"><%= comment.user.name %>:</h4>
     <div class="content">
-        <h6 class="text-left"><%= comment.comment %></h6>
+        <h6 class="text-left"><%= simple_format comment.comment %></h6>
       <div class="pull-right">
         <% if belongs_to_user?(comment) %>
-          <%= link_to comment_path(comment), method: :delete, class: 'btn btn-danger btn-sm' do %>
+          <%= link_to comment_path(comment), method: :delete, class: 'btn btn-danger btn-sm', remote: true do %>
             <% fa_icon 'trash' %>
           <% end %>
         <% end %>

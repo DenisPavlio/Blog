@@ -8,6 +8,7 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1
   def show
+    @comments = @category.comments.all
   end
 
   # GET /categories/new

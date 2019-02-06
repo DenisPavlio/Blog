@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_commentable, only: :create
-  respond_to :js, only: :create
+  respond_to :js, only: [:create, :destroy]
 
   def create
     @comment = @commentable.comments.new do |comment|
@@ -15,7 +15,7 @@ class CommentsController < ApplicationController
     @comment = current_user.comments.find(params[:id])
     @comment_id = params[:id]
     @comment.destroy
-    redirect_to post_path(@comment.commentable_id)
+    # redirect_to post_path(@comment.commentable_id)
   end
 
   private
