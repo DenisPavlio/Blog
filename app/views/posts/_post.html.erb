@@ -35,8 +35,8 @@
         <div class="col-xs-12 like">
           <%= render 'likes/form', likeable: post %>
         </div>
+        <%= render 'comments/button', post: post if button == true %>
       </div>
-
     </div>
   <% end %>
 <% end %>

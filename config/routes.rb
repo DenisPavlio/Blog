@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   resources :posts
-  resources :categories
+  resources :categories do
+    member do
+      get 'comments'
+    end
+  end
+
   resources :comments, only: [:create, :destroy]
   devise_for :users
   root to: 'posts#index'

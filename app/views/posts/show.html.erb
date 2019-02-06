@@ -1,26 +1,9 @@
-<div class="category">
-  <div class="list-group">
-    <% @categories.each do |category| %>
-      <% if category.id == @post.category.id %>
-        <%= link_to category.name, category_path(category), class: 'list-group-item disabled' %>
-        <% else %>
-       <%= link_to category.name, category_path(category), class: 'list-group-item' %>
-        <% end %>
-    <% end %>
-<!--    <a href="#" class="list-group-item disabled">-->
-<!--      Cras justo odio-->
-<!--    </a>-->
-<!--    <a href="#" class="list-group-item">Dapibus ac facilisis in</a>-->
-<!--    <a href="#" class="list-group-item">Morbi leo risus</a>-->
-<!--    <a href="#" class="list-group-item">Porta ac consectetur ac</a>-->
-<!--    <a href="#" class="list-group-item">Vestibulum at eros</a>-->
-  </div>
-</div>
+<%= render 'shared/categories_list', categories: @categories, resource: @post.category %>
 <% if @post.user %>
   <div id="post-<%= @post.id %>" class="post">
     <div class="row">
       <div class="col-lg-10 col-lg-offset-1 well">
-        <%= render @post, remote: false %>
+        <%= render @post, button: false, remote: false %>
       </div>
     </div>
     <div class="row">

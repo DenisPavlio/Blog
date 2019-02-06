@@ -1,5 +1,5 @@
 class CategoriesController < ApplicationController
-  before_action :set_category, only: [:show, :edit, :update, :destroy]
+  before_action :set_category, only: [:show, :edit, :update, :destroy, :comments]
 
   # GET /categories
   def index
@@ -8,7 +8,8 @@ class CategoriesController < ApplicationController
 
   # GET /categories/1
   def show
-    @comments = @category.comments.all
+    @posts = Post.where(category_id: @category.id)
+    @categories = Category.all
   end
 
   # GET /categories/new
@@ -44,6 +45,11 @@ class CategoriesController < ApplicationController
   def destroy
     @category.destroy
     redirect_to categories_url, notice: 'Category was successfully destroyed.'
+  end
+
+  def comments
+    @comments = @category.comments.all
+    @categories = Category.all
   end
 
   private

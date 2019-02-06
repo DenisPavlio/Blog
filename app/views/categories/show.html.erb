@@ -1,18 +1,14 @@
-
-Category name:
-<h3><%= @category.name %></h3>
-<div id="category-<%= @category.id %>" class="category">
-  <div class="row">
-    <div class="col-lg-10 col-lg-offset-1 well">
-      <h4>Comments</h4>
-      <hr>
-      <%= render 'comments/form', commentable: @category %>
-      <br>
-      <div class="comments">
-        <%= render(@comments) || render('shared/no_resource', resources: 'Comments') %>
+<%= render 'shared/categories_list', categories: @categories, resource: @category %>
+<% if @posts.present? %>
+  <% @posts.each do |post| %>
+  <div id="post-<%= post.id %>" class="post">
+    <div class="row">
+      <div class="col-lg-10 col-lg-offset-1 well">
+        <%= render post, button: true, remote: false %>
       </div>
     </div>
   </div>
-  <%= link_to 'Edit', edit_category_path(@category) %> |
-  <%= link_to 'Back', categories_path %>
-</div>
+    <% end %>
+<% else %>
+  <%= render('shared/no_resource', resources: 'Posts') %>
+<% end %>
