@@ -1,5 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_categories, only: [:new, :show]
   before_action :authenticate_user!, except: :index
   # GET /posts
   def index
@@ -14,7 +15,6 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
-    @categories = Category.all
   end
 
   # GET /posts/1/edit
@@ -52,6 +52,10 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+    end
+
+    def set_categories
+      @categories = Category.all
     end
     # Only allow a trusted parameter "white list" through.
     def post_params

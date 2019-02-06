@@ -3,7 +3,7 @@ Category name:
 <h3><%= @category.name %></h3>
 <div id="category-<%= @category.id %>" class="category">
   <div class="row">
-    <div class="col-lg-6 col-lg-offset-3 well">
+    <div class="col-lg-10 col-lg-offset-1 well">
       <h4>Comments</h4>
       <hr>
       <%= render 'comments/form', commentable: @category %>
