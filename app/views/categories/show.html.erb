@@ -1,3 +1,4 @@
+<h1>Category: <%= @category.name %></h1><br>
 <%= render 'shared/categories_list', categories: @categories, resource: @category %>
 <% if @posts.present? %>
   <% @posts.each do |post| %>

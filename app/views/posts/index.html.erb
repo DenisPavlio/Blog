@@ -4,32 +4,18 @@
 </p>
 <br><br>
 
-    <table class="table text-left">
-      <thead>
-      <tr class="info">
-        <th>Date</th>
-        <th>Name</th>
-        <th>Content</th>
-        <th>Autor</th>
-        <th>Category</th>
-        <th>Likes</th>
-        <th>Comments</th>
-      </tr>
-      </thead>
-      <tbody>
-      <% @posts.each do |post| %>
-        <tr>
-          <td><%= post.date %></td>
-          <td><%= link_to post.name, post_path(post) %></td>
-          <td><%= link_to truncate(post.content, length: 50, separator: ' '), post_path(post) %></td>
-          <td><%= post.user.name %></td>
-          <td><%= post.category.name %></td>
-          <td><%= post.cached_votes_up %></td>
-          <td><%= post.comments.count %></td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
-
-<%= link_to 'New Post', new_post_path %>
+<%= render 'shared/categories_list', categories: @categories, resource: false %>
+<% if @posts.present? %>
+  <% @posts.each do |post| %>
+    <div id="post-<%= post.id %>" class="post">
+      <div class="row">
+        <div class="col-lg-10 col-lg-offset-1 well">
+          <%= render post, button: true, remote: false %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% else %>
+  <%= render('shared/no_resource', resources: 'Posts') %>
+<% end %>
 

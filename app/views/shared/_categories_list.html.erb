@@ -1,7 +1,7 @@
 <div class="category">
   <div class="list-group">
     <% categories.each do |category| %>
-      <% if category.id == resource.id %>
+      <% if resource.present? && category.id == resource.id %>
         <%= link_to category.name, category_path(category), class: 'list-group-item disabled' %>
       <% else %>
         <%= link_to category.name, category_path(category), class: 'list-group-item' %>

@@ -1,5 +1,5 @@
 <%= render 'shared/categories_list', categories: @categories, resource: @post.category %>
-<% if @post.user %>
+
   <div id="post-<%= @post.id %>" class="post">
     <div class="row">
       <div class="col-lg-10 col-lg-offset-1 well">
@@ -10,7 +10,7 @@
       <div class="col-lg-10 col-lg-offset-1 well">
         <h4>Comments</h4>
         <hr>
-        <%= render 'comments/form', commentable: @post %>
+        <%= render 'comments/form', commentable: @post if user_signed_in? %>
         <br>
         <div class="comments">
           <%= render(@comments) || render('shared/no_resource', resources: 'Comments') %>
@@ -18,4 +18,4 @@
       </div>
     </div>
   </div>
-<% end %>
+

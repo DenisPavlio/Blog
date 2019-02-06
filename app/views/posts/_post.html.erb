@@ -11,7 +11,12 @@
         <%= image_tag post.file.url, class: 'file' %>
       </div>
       <hr>
-      <span class="text"><%= post.content %></span>
+      <% if button == true %>
+        <p class="text-left"><%= truncate(post.content, length: 500, separator: ' ') %></p>
+        <%= link_to 'Read more...', post_path(post) if post.content.length > 500 %>
+        <% else %>
+          <p class="text-left"><%= post.content %></p>
+        <% end %>
       <hr>
     <% end %>
     <div class="text-left">
@@ -38,6 +43,8 @@
         <%= render 'comments/button', post: post if button == true %>
       </div>
     </div>
+   <% else %>
+    <p class="text-primary">Please Login to post a comments and likes</p>
+    <%= render 'comments/button', post: post if button == true %>
   <% end %>
 <% end %>
-
