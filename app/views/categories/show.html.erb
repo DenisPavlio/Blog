@@ -1,4 +1,9 @@
 <h1>Category: <%= @category.name %></h1><br>
+<%= form_tag comments_category_path(@category), method: :get do %>
+  <%= button_tag class: 'btn btn-primary' do %>
+    <%= fa_icon 'comments' %> Show category comments (<%= @category.comments.count %>)
+  <% end %>
+<% end %><hr>
 <%= render 'shared/categories_list', categories: @categories, resource: @category %>
 <% if @posts.present? %>
   <% @posts.each do |post| %>
