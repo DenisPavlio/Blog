@@ -7,6 +7,8 @@ class Category < ApplicationRecord
   private
 
   def name_rules
+    return if name.nil?
+
     splited = name.split
     msg1 = 'Name must be at least 2 words'
     msg2 = 'First and second words must be at least 2 letters'

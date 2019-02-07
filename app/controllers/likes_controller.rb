@@ -12,6 +12,7 @@ class LikesController < ApplicationController
   end
 
   private
+
   def find_likeable
     @likeable_type = params[:likeable_type].classify
     @likeable = @likeable_type.constantize.find(params[:likeable_id])
