@@ -7,7 +7,7 @@ namespace :fill do
     puts 'Erasing existing data'
     puts '====================='
 
-    [User, Post, Comment, Category].each(&:delete_all)
+    [Post, Comment, Category].each(&:delete_all)
     ActsAsVotable::Vote.delete_all
 
     puts 'Creating users'
@@ -15,7 +15,7 @@ namespace :fill do
     password = 'password'
 
     User.populate 20 do |user|
-      user.name = Faker::Name.name
+      user.name = Faker::Name.name + '.'
       user.email = Faker::Internet.email
       user.encrypted_password = User.new(password: password).encrypted_password
       puts "created user #{user.email}"
@@ -25,8 +25,9 @@ namespace :fill do
     puts '==================='
     20.times do
       category = Category.new
-      category.name = Faker::Name.prefix + ' ' + Faker::Superhero.name
-      category.save
+      # crazy name for validate
+      category.name = Faker::Name.prefix + 's ' + Faker::Superhero.name + '.'
+      category.save!
       puts "created category #{category.name}"
     end
 
@@ -37,7 +38,8 @@ namespace :fill do
 
     150.times do
       post = Post.new
-      post.name = Faker::RockBand.name
+      # crazy name for validate
+      post.name = Faker::RockBand.name + 's ' + Faker::RockBand.name + '.'
       post.content = Populator.sentences(2..10)
       post.user = users.sample
       post.category = categories.sample
