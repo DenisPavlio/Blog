@@ -1,24 +1,48 @@
-# README
+# Rails Blog
+This Rails-based blog with categories, comments and likes.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+You can see how it work here:
+https://www.youtube.com/watch?v=bL04Rs72Yzk
 
-Things you may want to cover:
+## Installation and usage
 
-* Ruby version
+Clone repository and run following commands:
+```
+bundle install
+rake db:migrate
+```
 
-* System dependencies
+To test the app with mock data by running the following rake task:
+```
+rake fill:data
+```
 
-* Configuration
+Run rails using
 
-* Database creation
+```
+rails s
+```
 
-* Database initialization
+You can try app here: http://0.0.0.0:3000/
 
-* How to run the test suite
+If you want to run Rspec tests use following command
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+bundle exec rspec spec
+```
 
-* Deployment instructions
+What I used:
+```
+Device
+Bootstrap
+Carrierwave
+will_paginate
+Acts As Votable
+Acts As Commentable
+jQuery
+Font Awesome
+Faker
+Populator
+```
 
-* ...
+Thnx :)

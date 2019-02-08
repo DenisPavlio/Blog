@@ -1,7 +1,7 @@
 class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :find_commentable, only: :create
-  respond_to :js, only: [:create, :destroy]
+  respond_to :js, only: %i[create destroy]
 
   def create
     @comment = @commentable.comments.new do |comment|
