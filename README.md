@@ -43,6 +43,7 @@ jQuery
 Font Awesome
 Faker
 Populator
+Rspec
 ```
 
 Thnx :)

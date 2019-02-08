@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="c21cb998-ee10-40fe-8481-03664f1c1cfd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/controllers/comments_controller.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/controllers/comments_controller.rb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/helpers/application_helper.rb" beforeDir="false" afterPath="$PROJECT_DIR$/app/helpers/application_helper.rb" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.bundle/" />
     <ignored path="$PROJECT_DIR$/components/" />
@@ -106,7 +104,7 @@
         <counts>
           <entry key="Gemfile" value="57" />
           <entry key="erb" value="3051" />
-          <entry key="md" value="182" />
+          <entry key="md" value="188" />
           <entry key="rake" value="519" />
           <entry key="rb" value="1731" />
           <entry key="scss" value="214" />
@@ -114,7 +112,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Markdown" value="182" />
+          <entry key="Markdown" value="188" />
           <entry key="RHTML" value="3051" />
           <entry key="Ruby" value="2307" />
           <entry key="SCSS" value="214" />
@@ -175,8 +173,8 @@
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="480">
-                <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+              <first_editor relative-caret-position="675">
+                <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
               </first_editor>
               <second_editor />
             </state>
@@ -527,7 +525,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="78160000" />
+    <option name="totallyTimeSpent" value="78434000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1226" y="23" width="1334" height="1374" extended-state="0" />
@@ -882,8 +880,8 @@
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="480">
-            <caret line="32" lean-forward="true" selection-start-line="32" selection-end-line="32" />
+          <first_editor relative-caret-position="675">
+            <caret line="45" column="5" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
           </first_editor>
           <second_editor />
         </state>
